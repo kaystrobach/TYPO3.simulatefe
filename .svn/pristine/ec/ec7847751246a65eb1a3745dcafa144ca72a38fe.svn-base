@@ -1,0 +1,72 @@
+<f:layout name="Default" />
+
+This Template is responsible for creating a table of domain objects.
+
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+
+<f:if condition="{allUsersMaySwitchUser}">
+	<f:then>
+		<f:flashMessages />
+
+		<div class="tx_simulatefeWrapper">
+			<b><f:translate key="LLL:EXT:simulatefe/Resources/Private/Language/locallang.xml:selectuser" /></b>
+			<div class="tx_simulatefe iScroll" >
+				<ul>
+					<f:for each="{users}" as="user">
+						<li><f:link.action action="switch" arguments="{user : user}">{user.username}</f:link.action></li>
+					</f:for>
+				</ul>
+			</div>
+			<f:if condition="{currentUser.uid}">
+				<f:then>
+					<f:link.action action="logout"><f:translate key="LLL:EXT:simulatefe/Resources/Private/Language/locallang.xml:logout" />: {currentUser.username}</f:link.action>
+				</f:then>
+			</f:if>
+		</div>
+
+		<style type="text/css">
+			div.tx_simulatefeWrapper {
+				position: absolute;
+				background-color: #d3d3d3;
+				top: 0px;
+				left:0px;
+				border-bottom-right-radius: 10px;
+				border:1px solid #d3d3d3;
+				padding: 5px;
+			}
+			div.tx_simulatefe {
+
+				width: 180px;
+				height:80px;
+				overflow-y: auto;
+				overflow-x: hidden;
+			}
+
+			::-webkit-scrollbar {
+				width: 12px;
+			}
+
+			.iScroll::-webkit-scrollbar-track {
+				-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+				border-radius: 10px;
+			}
+
+			.iScroll::-webkit-scrollbar-thumb {
+				border-radius: 10px;
+				-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+			}
+		</style>
+	</f:then>
+</f:if>
+
+</f:section>

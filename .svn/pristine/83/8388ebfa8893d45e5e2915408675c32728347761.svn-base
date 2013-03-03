@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for the Simulate FE User extension in the FRONTEND</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="selectuser">Select frontend user</label>
+			<label index="logout">logout</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="selectuser">Benutzer wählen</label>
+			<label index="logout">abmelden</label>
+		</languageKey>
+	</data>
+</T3locallang>

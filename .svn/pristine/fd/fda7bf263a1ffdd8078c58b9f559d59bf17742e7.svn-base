@@ -1,0 +1,37 @@
+plugin.tx_simulatefe {
+	view {
+		templateRootPath = {$plugin.tx_simulatefe.view.templateRootPath}
+		partialRootPath = {$plugin.tx_simulatefe.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_simulatefe.view.layoutRootPath}
+	}
+	persistence {
+		storagePid = {$plugin.tx_simulatefe.persistence.storagePid}
+		classes {
+			Tx_Simulatefe_Domain_Model_User {
+				mapping {
+					tableName = fe_users
+				}
+			}
+		}
+	}
+}
+
+plugin.tx_simulatefe._CSS_DEFAULT_STYLE (
+	input.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	.tx-simulatefe table {
+		border-collapse:separate;
+		border-spacing:10px;
+	}
+
+	.tx-simulatefe table th {
+		font-weight:bold;
+	}
+
+	.tx-simulatefe table td {
+		vertical-align:top;
+	}
+)

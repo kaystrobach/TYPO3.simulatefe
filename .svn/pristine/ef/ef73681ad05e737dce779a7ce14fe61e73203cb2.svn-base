@@ -1,0 +1,79 @@
+/**
+ * default stuff
+ */
+	div#tx_simulatefeWrapper {
+		position: fixed;
+		background-color: #d3d3d3;
+		left: 0px;
+		top:0px;
+		border-bottom-right-radius: 10px;
+		border:1px solid #d3d3d3;
+		padding: 5px;
+		z-index: 999999;
+		height:20px;
+		width: 400px;
+		color: black;
+		font-size: 12px;
+	}
+	div#tx_simulatefeWrapper a{
+		color: #3b3b3b;
+	}
+	div#tx_simulatefe {
+		overflow-y: auto;
+		overflow-x: hidden;
+		display:none;
+		height: 95%;
+	}
+	div#tx_simulatefe ul li {
+		list-style: circle;
+		display:block;
+		text-align: left;
+	}
+	div#tx_simulatefe ul li a{
+		display: block;
+		padding: 10px;
+		padding-left: 30px;
+		border: 1px solid #d3d3d3;
+		border-radius: 10px;
+	}
+	div#tx_simulatefe ul li a:hover{
+		background-color: #adadad;
+	}
+/**
+ * Collapse and uncollape
+ */
+	div#tx_simulatefeWrapper:target {
+		height: 95%;
+	}
+	
+	div#tx_simulatefeWrapper .tx_simulatefeWrapperCollapse {
+		display:none;
+	}
+	
+	div#tx_simulatefeWrapper:target .tx_simulatefeWrapperCollapse {
+		display: inline;
+	}
+	div#tx_simulatefeWrapper:target .tx_simulatefeWrapperUncollapse {
+		display: none;
+	}
+	div#tx_simulatefeWrapper:target div#tx_simulatefe {
+		display: block;
+	}
+
+
+/**
+ * customer scrollbars
+ */
+	.iScroll::-webkit-scrollbar {
+		width: 12px;
+	}
+	
+	.iScroll::-webkit-scrollbar-track {
+		-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+		border-radius: 10px;
+	}
+	
+	.iScroll::-webkit-scrollbar-thumb {
+		border-radius: 10px;
+		-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+	}

@@ -1,0 +1,44 @@
+plugin.tx_simulatefe {
+	view {
+		templateRootPath = {$plugin.tx_simulatefe.view.templateRootPath}
+		partialRootPath  = {$plugin.tx_simulatefe.view.partialRootPath}
+		layoutRootPath   = {$plugin.tx_simulatefe.view.layoutRootPath}
+	}
+	persistence {
+		storagePid = {$plugin.tx_simulatefe.persistence.storagePid}
+		recursive = {$plugin.tx_simulatefe.persistence.recursive}
+		classes {
+			Tx_Simulatefe_Domain_Model_User {
+				mapping {
+					tableName = fe_users
+				}
+			}
+		}
+
+	}
+	settings {
+		storagePid        = {$plugin.tx_simulatefe.persistence.storagePid}
+		recursive         = {$plugin.tx_simulatefe.persistence.recursive}
+		securityConcept   = {$plugin.tx_simulatefe.settings.securityConcept}
+		securityGroupList = {$plugin.tx_simulatefe.settings.securityGroupList}
+	}
+}
+
+page.1329210700 = USER
+page.1329210700  {
+	userFunc      =  tx_extbase_core_bootstrap->run
+	pluginName    =  Pi1
+	extensionName =  Simulatefe
+	controller    =  User
+	action        =  list
+	settings      =< plugin.tx_simulatefe.settings
+	persistence   =< plugin.tx_simulatefe.persistence
+	view          =< plugin.tx_simulatefe.view
+	switchableControllerActions {
+		User {
+			1 = list
+			2 = switch
+			3 = logout
+		}
+	}
+}
