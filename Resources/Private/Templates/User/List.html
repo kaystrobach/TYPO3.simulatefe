@@ -25,10 +25,10 @@ Otherwise your changes will be overwritten the next time you save the extension 
 			<div id="tx_simulatefeWrapper">
 				<div>
 					<b>
-						<a href="{f:uri.page()}#tx_simulatefeWrapper" class="tx_simulatefeWrapperUncollapse">
+						<a href="{f:uri.page(addQueryString:1)}#tx_simulatefeWrapper" class="tx_simulatefeWrapperUncollapse">
 							<f:translate key="LLL:EXT:simulatefe/Resources/Private/Language/locallang.xml:uncollapse" />
 						</a>
-						<a href="{f:uri.page()}#" class="tx_simulatefeWrapperCollapse">
+						<a href="{f:uri.page(addQueryString:1)}#" class="tx_simulatefeWrapperCollapse">
 							<f:translate key="LLL:EXT:simulatefe/Resources/Private/Language/locallang.xml:collapse" />
 						</a>
 						<f:if condition="{currentUser.uid}">
