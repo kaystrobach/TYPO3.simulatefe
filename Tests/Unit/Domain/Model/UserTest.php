@@ -1,9 +1,12 @@
 <?php
 
+namespace KAYSTROBACH\Simulatefe\Tests\Unit\Domain\Model;
+
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2012 
+ *  (c) 2016 Markus Gerdes <markus@madaxel.de>, MadaXel IT Solutions UG
+ *
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -24,36 +27,35 @@
  ***************************************************************/
 
 /**
- * Test case for class Tx_Simulatefe_Domain_Model_User.
+ * Test case for class \KAYSTROBACH\Simulatefe\Domain\Model\User.
  *
- * @version $Id$
  * @copyright Copyright belongs to the respective authors
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
- * @package TYPO3
- * @subpackage Simulate FE User
- *
+ * @author Markus Gerdes <markus@madaxel.de>
  */
-class Tx_Simulatefe_Domain_Model_UserTest extends Tx_Extbase_Tests_Unit_BaseTestCase {
+class UserTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
+{
 	/**
-	 * @var Tx_Simulatefe_Domain_Model_User
+	 * @var \KAYSTROBACH\Simulatefe\Domain\Model\User
 	 */
-	protected $fixture;
+	protected $subject = NULL;
 
-	public function setUp() {
-		$this->fixture = new Tx_Simulatefe_Domain_Model_User();
+	public function setUp()
+	{
+		$this->subject = new \KAYSTROBACH\Simulatefe\Domain\Model\User();
 	}
 
-	public function tearDown() {
-		unset($this->fixture);
+	public function tearDown()
+	{
+		unset($this->subject);
 	}
-	
+
 	/**
 	 * @test
 	 */
-	public function dummyTestToNotLeaveThisFileEmpty() {
+	public function dummyTestToNotLeaveThisFileEmpty()
+	{
 		$this->markTestIncomplete();
 	}
-	
 }
-?>

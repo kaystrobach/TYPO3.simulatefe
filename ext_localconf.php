@@ -1,19 +1,19 @@
 <?php
 if (!defined('TYPO3_MODE')) {
-	die ('Access denied.');
+	die('Access denied.');
 }
 
-Tx_Extbase_Utility_Extension::configurePlugin(
-	$_EXTKEY,
-	'Pi1',
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+	'KAYSTROBACH.' . $_EXTKEY,
+	'Simulate',
 	array(
-		'User' => 'list,switch,logout',
+		'User' => 'list, switch, logout',
+
 	),
 	// non-cacheable actions
 	array(
-		'User' => 'list,switch,logout',
+		'User' => 'list, switch, logout',
 	),
-	Tx_Extbase_Utility_Extension::PLUGIN_TYPE_CONTENT_ELEMENT
+	\TYPO3\CMS\Extbase\Service\ExtensionService::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 
-?>

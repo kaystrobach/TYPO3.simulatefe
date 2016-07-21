@@ -1,1 +1,92 @@
-{"modules":[],"properties":{"backendModules":[],"description":"","emConf":{"category":"plugin","custom_category":"","priority":"","shy":false,"state":"alpha","version":""},"extensionKey":"simulatefe","name":"Simulate FE User","originalExtensionKey":"simulatefe","persons":[],"plugins":[{"actions":{"controllerActionCombinations":"User=>list, simulate","noncacheableActions":"User=>list, simulate","switchableActions":"User->list"},"key":"simulate","name":"FE-User Selector"}]},"wires":[],"log":{"last_modified":"2012-02-04 04:22","extension_builder_version":"2.1.0","be_user":" (3)"}}
+{
+    "modules": [
+        {
+            "config": {
+                "position": [
+                    293,
+                    103
+                ]
+            },
+            "name": "New Model Object",
+            "value": {
+                "actionGroup": {
+                    "_default0_list": true,
+                    "_default1_show": false,
+                    "_default2_new_create": false,
+                    "_default3_edit_update": false,
+                    "_default4_delete": false,
+                    "customActions": [
+                        "logout",
+                        "switch"
+                    ]
+                },
+                "name": "User",
+                "objectsettings": {
+                    "addDeletedField": false,
+                    "addHiddenField": false,
+                    "addStarttimeEndtimeFields": false,
+                    "aggregateRoot": true,
+                    "categorizable": false,
+                    "description": "User Representation",
+                    "mapToTable": "fe_users",
+                    "parentClass": "\\TYPO3\\CMS\\Extbase\\Domain\\Model\\FrontendUser",
+                    "sorting": false,
+                    "type": "Entity",
+                    "uid": "363449384805"
+                },
+                "propertyGroup": {
+                    "properties": []
+                },
+                "relationGroup": {
+                    "relations": []
+                }
+            }
+        }
+    ],
+    "properties": {
+        "backendModules": [],
+        "description": "Allows backend users to simulate frontend users ",
+        "emConf": {
+            "category": "plugin",
+            "custom_category": "",
+            "dependsOn": "typo3 => 7.6.0-7.6.99\n",
+            "disableLocalization": false,
+            "disableVersioning": false,
+            "skipGenerateDocumentationTemplate": false,
+            "sourceLanguage": "en",
+            "state": "beta",
+            "targetVersion": "7.6.0-7.6.99",
+            "version": "2.0.0"
+        },
+        "extensionKey": "simulatefe",
+        "name": "Simulate FE User",
+        "originalExtensionKey": "simulatefe",
+        "originalVendorName": "KAYSTROBACH",
+        "persons": [
+            {
+                "company": "MadaXel IT Solutions UG",
+                "email": "markus@madaxel.de",
+                "name": "Markus Gerdes",
+                "role": "Developer"
+            }
+        ],
+        "plugins": [
+            {
+                "actions": {
+                    "controllerActionCombinations": "User=>list, switch, logout",
+                    "noncacheableActions": "User=>list, switch, logout",
+                    "switchableActions": "List\nUser->list"
+                },
+                "key": "simulate",
+                "name": "FE-User Selector"
+            }
+        ],
+        "vendorName": "KAYSTROBACH"
+    },
+    "wires": [],
+    "log": {
+        "last_modified": "2016-07-21 11:31",
+        "extension_builder_version": "7.6.0",
+        "be_user": " (9)"
+    }
+}
