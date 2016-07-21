@@ -1,9 +1,15 @@
 <?php
+namespace KAYSTROBACH\Simulatefe\Controller;
+
+use TYPO3\CMS\Extbase\Domain\Model\FrontendUser;
 
 /***************************************************************
+ *
  *  Copyright notice
  *
- *  (c) 2012 
+ *  (c) 2012
+ *  (c) 2016 Markus Gerdes <markus@madaxel.de>, MadaXel IT Solutions UG
+ *
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -23,32 +29,18 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-
 /**
- *
- *
  * @package simulatefe
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
- *
  */
-class Tx_Simulatefe_Controller_UserController extends Tx_Extbase_MVC_Controller_ActionController {
+class UserController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 
 	/**
 	 * userRepository
-	 *
-	 * @var Tx_Simulatefe_Domain_Repository_UserRepository
+	 * @inject
+	 * @var \KAYSTROBACH\Simulatefe\Domain\Repository\UserRepository
 	 */
 	protected $userRepository;
-
-	/**
-	 * injectUserRepository
-	 *
-	 * @param Tx_Simulatefe_Domain_Repository_UserRepository $userRepository
-	 * @return void
-	 */
-	public function injectUserRepository(Tx_Simulatefe_Domain_Repository_UserRepository  $userRepository) {
-		$this->userRepository = $userRepository;
-	}
 
 	/**
 	 * action list
@@ -58,19 +50,20 @@ class Tx_Simulatefe_Controller_UserController extends Tx_Extbase_MVC_Controller_
 	public function listAction() {
 		$users = $this->userRepository->findBySettings($this->settings);
 		$this->view->assign('users', $users);
-		$this->view->assign('currentUser', $GLOBALS["TSFE"]->fe_user->user);
+		$this->view->assign('currentUser', $GLOBALS['TSFE']->fe_user->user);
 		$this->view->assign('allUsersMaySwitchUser', $this->checkPermissions());
 	}
+
 	/**
 	 * switch to the specific user
 	 *
-	 * @param Tx_Simulatefe_Domain_Model_User $user
+	 * @param \TYPO3\CMS\Extbase\Domain\Model\FrontendUser $user
 	 *
 	 * return void
 	 */
-	public function switchAction(Tx_Simulatefe_Domain_Model_User $user) {
+	public function switchAction(FrontendUser $user) {
 		if($this->checkPermissions()) {
-			$fe_user = t3lib_BEfunc::getRecord('fe_users', $user->getUid());
+			$fe_user = \TYPO3\CMS\Backend\Utility\BackendUtility::getRecord('fe_users', $user->getUid());
 			$GLOBALS['TSFE']->fe_user->createUserSession($fe_user);
 		} else {
 			$this->flashMessageContainer->add('You´re not allowed to switch to a different user.', 'Access denied', t3lib_FlashMessage::ERROR);
@@ -88,17 +81,16 @@ class Tx_Simulatefe_Controller_UserController extends Tx_Extbase_MVC_Controller_
 		switch($this->settings['securityConcept']) {
 			case 'group':
 				foreach($GLOBALS['TSFE']->fe_user->groupData['uid'] as $groupUid) {
-					if(t3lib_div::inList($groupUid, $this->settings['securityGroupList'])) {
+					if(\TYPO3\CMS\Core\Utility\GeneralUtility::inList($groupUid, $this->settings['securityGroupList'])) {
 						return true;
 					}
 				}
-			break;
+				break;
 			case 'admin':
 			default:
 				return $GLOBALS['BE_USER'] && $GLOBALS['BE_USER']->isAdmin();
-			break;
+				break;
 		}
 	}
-
 }
 ?>

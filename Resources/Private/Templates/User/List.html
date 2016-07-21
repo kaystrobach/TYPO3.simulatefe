@@ -25,18 +25,18 @@ Otherwise your changes will be overwritten the next time you save the extension 
 			<div id="tx_simulatefeWrapper">
 				<div>
 					<b>
-						<a href="{f:uri.page(addQueryString:1)}#tx_simulatefeWrapper" class="tx_simulatefeWrapperUncollapse">
-							<f:translate key="LLL:EXT:simulatefe/Resources/Private/Language/locallang.xml:uncollapse" />
+						<a href="{f:uri.page()}#tx_simulatefeWrapper" class="tx_simulatefeWrapperUncollapse">
+							<f:translate key="LLL:EXT:simulatefe/Resources/Private/Language/locallang.xlt:uncollapse" />
 						</a>
-						<a href="{f:uri.page(addQueryString:1)}#" class="tx_simulatefeWrapperCollapse">
-							<f:translate key="LLL:EXT:simulatefe/Resources/Private/Language/locallang.xml:collapse" />
+						<a href="{f:uri.page()}#" class="tx_simulatefeWrapperCollapse">
+							<f:translate key="LLL:EXT:simulatefe/Resources/Private/Language/locallang.xlt:collapse" />
 						</a>
 						<f:if condition="{currentUser.uid}">
 							<f:then>
 								&nbsp;&raquo;&nbsp;
 								<f:link.action action="logout" title="">
-									<span title="{f:translate(key:"LLL:EXT:simulatefe/Resources/Private/Language/locallang.xml:logout")} {currentUser.username}">
-										{f:translate(key:"LLL:EXT:simulatefe/Resources/Private/Language/locallang.xml:logout")}
+									<span title="{f:translate(key:"LLL:EXT:simulatefe/Resources/Private/Language/locallang.xlt:logout")} {currentUser.username}">
+										{f:translate(key:"LLL:EXT:simulatefe/Resources/Private/Language/locallang.xlt:logout")}
 									</span>
 								</f:link.action>
 							</f:then>
@@ -44,7 +44,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 					</b>
 				</div>
 				<div id="tx_simulatefe" class="iScroll tx_simulatefeWrapperCollapse" >
-					<!--<f:translate key="LLL:EXT:simulatefe/Resources/Private/Language/locallang.xml:selectuser" />-->
+					<!--<f:translate key="LLL:EXT:simulatefe/Resources/Private/Language/locallang.xlt:selectuser" />-->
 					<ul>
 						<f:for each="{users}" as="user">
 							<li><f:link.action action="switch" arguments="{user : user}">{user.username}</f:link.action></li>

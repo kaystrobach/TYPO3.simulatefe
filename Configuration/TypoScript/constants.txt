@@ -1,22 +1,23 @@
-plugin.tx_simulatefe {
+
+plugin.tx_simulatefe_simulate {
 	view {
-		# cat=plugin.tx_simulatefe/file; type=string; label=Path to template root (FE)
+		# cat=plugin.tx_simulatefe_simulate/file; type=string; label=Path to template root (FE)
 		templateRootPath = EXT:simulatefe/Resources/Private/Templates/
-		# cat=plugin.tx_simulatefe/file; type=string; label=Path to template partials (FE)
+		# cat=plugin.tx_simulatefe_simulate/file; type=string; label=Path to template partials (FE)
 		partialRootPath = EXT:simulatefe/Resources/Private/Partials/
-		# cat=plugin.tx_simulatefe/file; type=string; label=Path to template layouts (FE)
+		# cat=plugin.tx_simulatefe_simulate/file; type=string; label=Path to template layouts (FE)
 		layoutRootPath = EXT:simulatefe/Resources/Private/Layouts/
 	}
 	persistence {
-		# cat=plugin.tx_simulatefe//a; type=int+; label=Default storage PID
+		# cat=plugin.tx_simulatefe_simulate//a; type=int+; label=Default storage PID
 		storagePid = 1
-		# cat=plugin.tx_simulatefe//a; type=int+; label=Recursionlevel for storagePid
+		# cat=plugin.tx_simulatefe_simulate//a; type=int+; label=Recursionlevel for storagePid
         recursive = 250
 	}
 	settings {
-		# cat=plugin.tx_simulatefe//a; type=options[admin only=admin,group based=group]; label=How to decide, that user is able to change user
+		# cat=plugin.tx_simulatefe_simulate//a; type=options[admin only=admin,group based=group]; label=How to decide, that user is able to change user
 		securityConcept = admin
-		# cat=plugin.tx_simulatefe/a; type=string; label=List of groups
+		# cat=plugin.tx_simulatefe_simulate/a; type=string; label=List of groups
 		securityGroupList = 0
 	}
 }
